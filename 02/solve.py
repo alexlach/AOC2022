@@ -26,5 +26,4 @@ points = {
     "C Y": 3 + 3,
     "C Z": 6 + 1,
 }
-scores = [points[round] for round in rounds]
 print(f"My score is {sum([points[round] for round in rounds])}.")
