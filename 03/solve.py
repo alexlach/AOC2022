@@ -2,11 +2,7 @@ sacks = open("03/input.txt").read().split("\n")
 
 
 def get_prio(letter):
-    """get ascii index of character and adjust it to our scoring system"""
-    if letter.lower() == letter:
-        return ord(letter) - 96
-    else:
-        return ord(letter) - 38
+    return ord(letter) - 96 if letter.islower() else ord(letter) - 38
 
 
 # part 1
