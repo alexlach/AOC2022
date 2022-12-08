@@ -4,7 +4,7 @@ import copy
 start, moves = open("05/input.txt").read().split("\n\n")
 
 # parse initial setup of the stacks
-stack_count = max((int(x) for x in re.findall(r"\d+", start)))
+stack_count = int(start[-2])
 initial_stacks = start.split("\n")
 stacks = [[] for _ in range(stack_count)]
 for row in initial_stacks[:-1]:
