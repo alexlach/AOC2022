@@ -1,3 +1,5 @@
+import functools
+
 pairs = open("13/input.txt").read().split("\n\n")
 
 
@@ -24,11 +26,22 @@ def is_in_order(item1, item2):
         return is_in_order(item1, [item2])
 
 
+# part 1
 in_order_inds = []
 for ind, pair in enumerate(pairs):
     item1, item2 = pair.split("\n")
     item1, item2 = eval(item1), eval(item2)
     if is_in_order(item1, item2):
         in_order_inds.append(ind + 1)
-
 print(sum(in_order_inds))
+
+# part 2
+packets = []
+for pair in pairs:
+    item1, item2 = pair.split("\n")
+    packets.append(eval(item1))
+    packets.append(eval(item2))
+packets.append([[2]])
+packets.append([[6]])
+packets = sorted(packets, key=functools.cmp_to_key(lambda p1, p2: -1 if is_in_order(p1, p2) else 1))
+print((1 + packets.index([[2]])) * (1 + packets.index([[6]])))
